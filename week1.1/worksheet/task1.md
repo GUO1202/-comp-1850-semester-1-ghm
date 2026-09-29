@@ -11,15 +11,15 @@ You can complete this task on the worksheet pdf if you prefer.
 |     Command                 |     Explanation    |
 |-----------------------------|--------------------|
 |     pwd                     | shows the current location of the terminal |
-|     ls                      | |
-|     cd directory_name       | |
-|     cd ..                   | |
-|     cd -                    | |
-|     mkdir directory_name    | |
-|     touch filename          | |
-|     git status              | |
-|     git add -A              | |
-|     git commit -m ""        | |
-|     git push                | |
-|     git pull                | |
+|     ls                      | list everything i currently use
+|     cd directory_name       | come into the certain file
+|     cd ..                   | back to the previous level
+|     cd -                    | back to the previous file
+|     mkdir directory_name    | make a new folder
+|     touch filename          | make a new empty file
+|     git status              | check the status of git now
+|     git add -A              | put all changes into a space
+|     git commit -m ""        | save the changes in the space and named it
+|     git push                | submit the changes to the distant storage
+|     git pull                | get the new things in the distant storage
 
