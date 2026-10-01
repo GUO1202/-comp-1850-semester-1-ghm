@@ -12,7 +12,7 @@ for row in data:
 
 
     # minutes_late is the number of minutes late a submission was made
-    minutes_late = int(row[1])
+    minutes_late = int(input(f"Enter minutes late for student {row[0]}: "))
 
     # for each of these, we need to work out how to turn 'minutes_late' into the right value
     # for example: if minutes_late is 2000, then days = 1, hours = 9, minutes = 20
