@@ -14,3 +14,11 @@
 
 # Download your file, and upload it to the 'Week 1 Session 2 - Practice Upload' task on Minerva.
 # You will get some feedback - ensure you are passing the tests!
+num1 = int(input("Enter your first number: "))
+
+num2 = int(input("Enter your second number: "))
+
+result = num1 * num2
+
+print(f"{num1} * {num2} = {result}")
+
