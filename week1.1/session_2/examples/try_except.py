@@ -1,4 +1,4 @@
-try:
+
     num1 = int(input("Enter your number: "))
     num2 = int(input("Enter your number: "))
     answer = num1 + num2
