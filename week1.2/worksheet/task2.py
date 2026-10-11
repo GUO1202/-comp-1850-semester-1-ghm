@@ -1,16 +1,11 @@
 # Worksheet 1.2: Task 2 Solution
-
-def read_numbers():
-    line = input("Enter some numbers, separated by spaces: ")
-    numbers = [float(item) for item in line.split()]
-    return numbers
-
+import sys
+from util import read_numbers
 
 numbers = read_numbers()
-print(numbers)
 
 if len(numbers) == 0:
-    print("Error: no numbers provided")
+    sys.exit("Error: no numbers provided")
 
 minimum = min(numbers)
 maximum = max(numbers)
@@ -24,8 +19,7 @@ if n % 2 != 0:
 else:
     median = (numbers[n // 2 - 1] + numbers[n // 2]) / 2
 
-
-print(f"Minimum: {minimum}")
-print(f"Maximum: {maximum}")
-print(f"Mean: {mean}")
-print(f"Median: {median}")
+print(f"Minimum = {minimum}")
+print(f"Maximum = {maximum}")
+print(f"Mean = {mean}")
+print(f"Median = {median}")
