@@ -1,14 +1,31 @@
 # Worksheet 1.2: Task 2 Solution
-from util import read_numbers
+
+def read_numbers():
+    line = input("Enter some numbers, separated by spaces: ")
+    numbers = [float(item) for item in line.split()]
+    return numbers
+
+
 numbers = read_numbers()
 print(numbers)
 
-Minimum = min(numbers)
-Maximum = max(numbers)
-Mean = sum(numbers) / len(numbers)
-Median = sorted(numbers)[len(numbers) // 2] if len(numbers) % 2 == 1 else (sorted(numbers)[len(numbers) // 2 - 1] + sorted(numbers)[len(numbers) // 2]) / 2
+if len(numbers) == 0:
+    print("Error: no numbers provided")
 
-print(f"Minimum: {Minimum}")
-print(f"Maximum: {Maximum}")
-print(f"Mean: {Mean}")
-print(f"Median: {Median}")
+minimum = min(numbers)
+maximum = max(numbers)
+mean = sum(numbers) / len(numbers)
+
+numbers.sort()
+n = len(numbers)
+
+if n % 2 != 0:
+    median = numbers[n // 2]
+else:
+    median = (numbers[n // 2 - 1] + numbers[n // 2]) / 2
+
+
+print(f"Minimum: {minimum}")
+print(f"Maximum: {maximum}")
+print(f"Mean: {mean}")
+print(f"Median: {median}")
