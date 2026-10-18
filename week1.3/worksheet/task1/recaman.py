@@ -2,6 +2,17 @@
 
 L = int(input("Length of sequence: ")) # this should be your only input
 
+sequence = [] # this is the data structure you will use to store the sequence
+for n in range(L):
+    if n == 0:
+        sequence.append(0)
+    else:
+        next_value = sequence[n-1] - n
+        if next_value > 0 and next_value not in sequence:
+            sequence.append(next_value)
+        else:
+            sequence.append(sequence[n-1] + n)
+
 
 # Your code for the Recaman Sequence
 # You should store the sequence in an appropriate data structure named 'sequence'
