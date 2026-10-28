@@ -6,7 +6,7 @@
     other than any provided template code, was written and developed by
     you independently.
 
-    Name:
+    Name:Guo Haomin
 """
 
 def currency_converter(amount, from_currency, to_currency):
@@ -17,10 +17,14 @@ def currency_converter(amount, from_currency, to_currency):
         'PHP': {'CNY': 0.12, 'GBP': 0.01, 'INR': 1.45},
         'INR': {'PHP': 0.69, 'CNY': 0.09, 'GBP': 0.01}
     }
+    if from_currency == to_currency:
+        return amount
 
+    rate = conversion_rate[from_currency][to_currency]
+    converted_amount = amount*rate
     # your code here
 
-    return None
+    return converted_amount
 
 # Submit only this file currency_converter.py with the completed function.
 

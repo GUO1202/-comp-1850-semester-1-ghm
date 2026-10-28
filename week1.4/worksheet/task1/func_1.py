@@ -1,5 +1,5 @@
 
-def func_1(lst_value): 
+def func_1(lst_value): #define a function called func_1 that takes a list of values as input
     ''' 
     write your docstring to explain the function 
     ''' 
