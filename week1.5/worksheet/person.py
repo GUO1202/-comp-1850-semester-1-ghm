@@ -5,7 +5,7 @@ from datetime import date
 class Person:
 
     def __init__(self, name, birth):
-        if not instance(name, str):
+        if not isinstance(name, str):
             raise TypeError("Name must be a string.")
 
         if name == "":
