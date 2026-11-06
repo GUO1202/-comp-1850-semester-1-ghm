@@ -3,8 +3,9 @@
 from datetime import date
 
 class Person:
-
+    """ A Person, with a name and a date of birth. """
     def __init__(self, name, birth):
+        """ Initialize a Person with a name and a date of birth. """
         if not isinstance(name, str):
             raise TypeError("Name must be a string.")
 
