@@ -20,6 +20,7 @@ class Person:
 
 
     def initials(self):
+        """ Returns the initials of the person in uppercase. """
 
         result = ""
         for part in self.name.split():
