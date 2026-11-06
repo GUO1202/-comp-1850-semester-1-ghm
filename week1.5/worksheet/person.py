@@ -28,6 +28,7 @@ class Person:
         return result
 
     def is_birthday(self):
+        """ Check if today is the person's birthday. """
         today = date.today()
         return today.month == self.birth.month and today.day == self.birth.day
 
