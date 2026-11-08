@@ -17,10 +17,8 @@ def digits_sum(number):
     Returns:
         int: The sum of the digits of the input integer.
     """
-    # complete your code here
-    # base case
-
-    # recursive case
+    if number < 10: return number
+    return number % 10 + digits_sum(number // 10)
 
 
 # check if correct output is produced

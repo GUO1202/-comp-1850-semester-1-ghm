@@ -17,7 +17,8 @@ def odd_even(lstIntegers):
         list: A list containing [odd_count, even_count].
     """
 
-    # Complete your code here
+    odd_count = sum(1 for n in lstIntegers if n % 2)
+    return [odd_count, len(lstIntegers) - odd_count]
 
 
 # Check if correct output is produced

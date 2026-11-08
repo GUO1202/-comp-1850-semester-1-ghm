@@ -9,6 +9,12 @@
 
 def valid_char_in_string(popList, charSet):
     """
+    if not isinstance(popList, list) or not isinstance(charSet, list):
+        return False
+    if any(not isinstance(char, str) or len(char) != 1 for char in charSet):
+        return False
+    return all(isinstance(word, str) and all(char in charSet for char in word)
+               for word in popList)
     This function takes two arguments popList and charSet, in which popList
     is a list of strings and charSet is a list of strings with a length of 1
     (a character).

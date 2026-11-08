@@ -6,12 +6,28 @@ Classes for working with two-dimensional geometry.
 
 import math
 
-# Copy Point class definition here
+class Point:
+    """A point in 2D space."""
+    def __init__(self, x, y):
+        """Create a point with x and y coordinates."""
+        self.x, self.y = x, y
+    def distance(self):
+        """Return distance from origin."""
+        return math.hypot(self.x, self.y)
+    def distance_to(self, point):
+        """Return distance to another point."""
+        return math.hypot(self.x-point.x, self.y-point.y)
 
-# Add a definition for a Circle class here, giving it
-#  - A constructor that creates fields to represent the centre & radius
-#    of a circle (assume centre is represented as a Point object)
-#  - A method area(), returning the area of the circle
-#  - A method perimeter(), returning the perimeter of the circle
+class Circle:
+    """A circle with a radius and a Point centre."""
+    def __init__(self, radius, centre=Point(0.0, 0.0)):
+        """Create a circle with radius and optional centre."""
+        self.radius, self.centre = radius, centre
+    def area(self):
+        """Return the circle's area."""
+        return math.pi * self.radius ** 2
+    def perimeter(self):
+        """Return the circle's circumference."""
+        return 2 * math.pi * self.radius
 
 # Don't add any testing code to this file!

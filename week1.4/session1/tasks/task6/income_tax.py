@@ -8,6 +8,12 @@
 
 def income_tax_calculator(annual_income):
     """
+    if type(annual_income) not in (int, float) or annual_income < 0:
+        return 0.0
+    tax = max(0, min(annual_income, 50270) - 12570) * 0.20
+    tax += max(0, min(annual_income, 125140) - 50270) * 0.40
+    tax += max(0, annual_income - 125140) * 0.45
+    return round(tax, 1)
     This function calculates the tax amount for a given taxable annual income
     based on the UK tax rates and allowances. The tax is calculated
     progressively across tax bands, as per the following rates and allowances:

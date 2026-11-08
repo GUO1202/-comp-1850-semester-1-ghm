@@ -8,17 +8,21 @@ def readPGM( filename ):
     Output: tuple of PGM image data
     '''
 
-    with open(filename,"r") as f:    # read in the file
-        data = f.readlines()
-        
-    data = [line.strip().split() for line in data[1:]] # clean the space-separated data, skip the first line
-          
-    width = int(data[0][0]) # store the data - compare to the text in the file
-    height = int(data[0][1])
-    max_gray = int(data[1][0])
-    pixels = [[int(data[2+i][j]) for j in range(width)] for i in range(height)] # nested list comprehension for pixel array
-    
-    return width,height,max_gray,pixels   # tuple of PGM data
+    with open(filename, "r") as f:
+        values = []
+        for line in f:
+            line = line.split('#')[0].strip()
+            if line:
+                values.extend(line.split())
+    if values[0] != "P2":
+        raise ValueError("File is not a P2 PGM image")
+    width, height = int(values[1]), int(values[2])
+    max_gray = int(values[3])
+    flat = [int(value) for value in values[4:]]
+    if len(flat) != width * height:
+        raise ValueError("Pixel count does not match image dimensions")
+    pixels = [flat[row * width:(row + 1) * width] for row in range(height)]
+    return width, height, max_gray, pixels
     
 def writePGM( filename, image ):
     '''
@@ -28,11 +32,10 @@ def writePGM( filename, image ):
     '''
     width,height,max_gray,pixels = image  # unpack the tuple
 
-    # open a file for writing
-    # write the data in PGM format
-    # don't forget the PGM code "P2"
-
-    return
+    with open(filename, "w") as f:
+        f.write(f"P2\n{width} {height}\n{max_gray}\n")
+        for row in pixels:
+            f.write(" ".join(str(pixel) for pixel in row) + "\n")
 
 def invertPGM( image ):
     '''
@@ -44,7 +47,7 @@ def invertPGM( image ):
 
     # your code
     # create a new pixel array of inverted data 
-    inverted = []  # you can use a similar nested comprehension to the readPGM() function
+    inverted = [[max_gray - pixel for pixel in row] for row in pixels]
     
     return width,height,max_gray,inverted
 
@@ -56,3 +59,5 @@ print(f"Image with width {image[0]} and height {image[1]}")
 print(f"{image[3]}")
 
 # write further code to test your own functions
+writePGM("images/feep_copy.pgm", image)
+writePGM("images/feep_inverted.pgm", invertPGM(image))
