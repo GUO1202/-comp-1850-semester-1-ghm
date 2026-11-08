@@ -1,18 +1,31 @@
 # Week 1.3, Session 2: Validate image
 
-# Open a pgm image
-# You could handle file errors with try/except
-
-# Read the file content
-
-# Store the width, the height, and the maximum gray value
-
-# For each pixel, check if the pixel value is between 0 and the maximum gray value inclusive
-
-# Check if the widths and heights are the same as specified
-
-# 4. Print the final verdit.
-#  Print `Valid image` if the widths, the heights are the same, and all pixel values between 0 and the maximum gray value inclusive
-#  Print `Invalid width` if the widths are different
-#  Print `Invalid height` if the heights are different
-#  Print `Invalid pixel values` if any pixel values is less than 0 and greater than the maximum gray value
+filename = input("Enter the PGM file name (e.g. ../images/feep.pgm): ")
+try:
+    with open(filename, 'r') as f:
+        data = []
+        for line in f:
+            line = line.split('#')[0].strip()
+            if line:
+                data.append(line)
+    if data[0] != 'P2':
+        raise ValueError("Invalid PGM format")
+    width, height = [int(i) for i in data[1].split()]
+    max_gray = int(data[2])
+    pixels = [[int(i) for i in line.split()] for line in data[3:]]
+    valid = True
+    if width <= 0 or any(len(row) != width for row in pixels):
+        print("Invalid width")
+        valid = False
+    if height <= 0 or len(pixels) != height:
+        print("Invalid height")
+        valid = False
+    if max_gray <= 0 or max_gray > 65535 or any(pixel < 0 or pixel > max_gray for row in pixels for pixel in row):
+        print("Invalid pixel values")
+        valid = False
+    if valid:
+        print("Valid image")
+except OSError:
+    print("Could not open or write the file")
+except (ValueError, IndexError):
+    print("Invalid PGM format")
