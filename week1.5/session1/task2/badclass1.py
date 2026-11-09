@@ -10,7 +10,7 @@ class Point:
 
     def __init__(self, x_coordinate, y_coordinate):
         """
-        Creates a Point, given x & y coordinates.
+        Creates a Point, given x and y coordinates.
         """
         self.x = x_coordinate
         self.y = y_coordinate
