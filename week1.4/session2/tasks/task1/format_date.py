@@ -10,5 +10,3 @@ def format_date(day, month, year, separator="-"):
     return f"{day}{separator}{month}{separator}{year}"
 
 
-print(format_date(8, 11, 2026))
-print(format_date(8, 11, 2026, "/"))
